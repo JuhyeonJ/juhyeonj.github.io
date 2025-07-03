@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>친환경 화장품 팝업 행사 안내</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 5px 0 0;
+            font-size: 1.1em;
+        }
+        .content {
+            padding: 30px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+        .content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .gift-highlight {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .location {
+            padding: 30px;
+            background-color: #fafafa;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        .location h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .location p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 25px;
+        }
+        .map-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .map-button {
+            display: inline-block;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            transition: transform 0.2s;
+        }
+        .map-button:hover {
+            transform: translateY(-2px);
+        }
+        .kakao-map {
+            background-color: #FFEB00;
+            color: #3C1E1E;
+        }
+        .naver-map {
+            background-color: #03C75A;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>친환경 화장품 팝업 행사</h1>
+            <p>자연과 함께하는 아름다움, 지금 만나보세요.</p>
+        </header>
+
+        <main class="content">
+            <h2>✨ 특별한 당신을 위한 특별한 이벤트</h2>
+            <p>
+                지구를 생각하는 착한 소비,
+                지속 가능한 아름다움을 추구하는 저희 브랜드가
+                여러분을 직접 만나기 위해 팝업 행사를 준비했습니다.
+            </p>
+            <p class="gift-highlight">
+                방문하시는 모든 고객님께<br>
+                저희의 정성을 담은 상품을 선물로 드립니다!
+            </p>
+        </main>
+
+        <section class="location">
+            <h2>📍 오시는 길</h2>
+            <p><strong>백운포체육공원</strong><br>부산 남구 백운포로 108</p>
+            <div class="map-buttons">
+                <a href="https://map.kakao.com/link/to/백운포체육공원,35.1051,129.1172" target="_blank" class="map-button kakao-map">카카오맵으로 길찾기</a>
+                <a href="https://m.map.naver.com/search2/search.naver?query=%EB%B6%80%EC%82%B0%20%EB%82%A8%EA%B5%AC%20%EB%B0%B1%EC%9A%B4%ED%8F%AC%EB%A1%9C%20108&sm=hty&style=p" target="_blank" class="map-button naver-map">네이버지도로 길찾기</a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 Busan. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
