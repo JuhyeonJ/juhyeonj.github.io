@@ -3,150 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>친환경 화장품 팝업 행사 안내</title>
+    <title>부산 화장품 특별 전시전</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Google Fonts - Noto Sans KR */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+        /* * CMYK to HEX Color Conversion for Web
+         * (C100, M80, Y0, K0) -> #243c7c (딥 블루)
+         * (C75, M100, Y0, K0) -> #6a008a (바이올렛)
+         * (M100, C0, Y0, K0)  -> #e5008d (마젠타)
+         * (C90, M30, Y0, K0)  -> #19b2e6 (포인트 블루)
+        */
+        :root {
+            --color-deep-blue: #243c7c;
+            --color-violet: #6a008a;
+            --color-magenta: #e5008d;
+            --color-accent-blue: #19b2e6;
+            --color-text: #ffffff;
+            --color-card-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Basic Reset & Body Style */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--color-text);
+            /* 아름다운 그라데이션 배경 */
+            background: linear-gradient(135deg, var(--color-deep-blue), var(--color-violet), var(--color-magenta));
+            background-attachment: fixed; /* 스크롤 시에도 그라데이션 고정 */
             display: flex;
+            flex-direction: column; /* 컨테이너와 푸터를 수직으로 정렬 */
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 2rem 1rem;
         }
+
+        /* Main Container - Glassmorphism Effect */
         .container {
             width: 100%;
-            max-width: 500px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            margin: 20px;
-        }
-        .header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 40px 20px;
+            max-width: 600px;
+            background: var(--color-card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 2.5rem 3rem;
             text-align: center;
         }
-        .header h1 {
-            margin: 0;
-            font-size: 2em;
-            font-weight: bold;
+
+        /* Header Section */
+        header {
+            margin-bottom: 2.5rem;
         }
-        .header p {
-            margin: 5px 0 0;
-            font-size: 1.1em;
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
         }
-        .content {
-            padding: 30px;
-            text-align: center;
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
         }
-        .content h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
+
+        /* Content Section Styling */
+        .content-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--color-accent-blue);
             display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
         }
-        .content p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
+
+        .content-section p, .content-section ul {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-weight: 300;
         }
-        .gift-highlight {
-            background-color: #e8f5e9;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: #2e7d32;
+        
+        #items ul {
+            list-style: none;
+            padding: 0;
         }
-        .location {
-            padding: 30px;
-            background-color: #fafafa;
-            border-top: 1px solid #eee;
-            text-align: center;
-        }
-        .location h2 {
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .location p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 25px;
-        }
+
+        /* Map Buttons Styling */
         .map-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
-        .map-button {
-            display: inline-block;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
+
+        .map-buttons .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid transparent;
+            border-radius: 50px;
             text-decoration: none;
-            font-size: 1em;
-            font-weight: bold;
-            color: white;
-            transition: transform 0.2s;
+            color: var(--color-text);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.15);
         }
-        .map-button:hover {
-            transform: translateY(-2px);
+        
+        .map-buttons .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .kakao-map {
-            background-color: #FFEB00;
-            color: #3C1E1E;
+
+        .map-buttons .btn.kakao {
+            background-color: #FEE500;
+            color: #191919;
         }
-        .naver-map {
-            background-color: #03C75A;
+        .map-buttons .btn.kakao:hover {
+            box-shadow: 0 0 15px #FEE500;
         }
-        .footer {
-            background-color: #333;
-            color: white;
+
+        .map-buttons .btn.naver {
+             background-color: #03C75A;
+             color: white;
+        }
+        .map-buttons .btn.naver:hover {
+            box-shadow: 0 0 15px #03C75A;
+        }
+        
+        /* Footer for Logo */
+        footer {
+            margin-top: 2rem;
             text-align: center;
-            padding: 15px;
-            font-size: 0.9em;
+        }
+
+        footer img {
+            width: 150px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        footer img:hover {
+            opacity: 1;
+        }
+
+
+        /* Responsive Design for Mobile */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 2rem 1.5rem;
+                margin: 0;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .content-section p, .content-section ul {
+                font-size: 1rem;
+            }
+            
+            .map-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            footer img {
+                width: 120px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header class="header">
-            <h1>친환경 화장품 팝업 행사</h1>
-            <p>자연과 함께하는 아름다움, 지금 만나보세요.</p>
+    <main class="container">
+        <!-- 행사 제목 및 기간 -->
+        <header>
+            <h1>부산 화장품 특별 전시전</h1>
+            <p>2025. 7. 5. ~ 7. 30.</p>
         </header>
 
-        <main class="content">
-            <h2>✨ 특별한 당신을 위한 특별한 이벤트</h2>
-            <p>
-                지구를 생각하는 착한 소비,
-                지속 가능한 아름다움을 추구하는 저희 브랜드가
-                여러분을 직접 만나기 위해 팝업 행사를 준비했습니다.
-            </p>
-            <p class="gift-highlight">
-                방문하시는 모든 고객님께<br>
-                저희의 정성을 담은 상품을 선물로 드립니다!
-            </p>
-        </main>
-
-        <section class="location">
-            <h2>📍 오시는 길</h2>
-            <p><strong>백운포체육공원</strong><br>부산 남구 백운포로 108</p>
-            <div class="map-buttons">
-                <a href="https://map.kakao.com/link/to/백운포체육공원,35.1051,129.1172" target="_blank" class="map-button kakao-map">카카오맵으로 길찾기</a>
-                <a href="https://m.map.naver.com/search2/search.naver?query=%EB%B6%80%EC%82%B0%20%EB%82%A8%EA%B5%AC%20%EB%B0%B1%EC%9A%B4%ED%8F%AC%EB%A1%9C%20108&sm=hty&style=p" target="_blank" class="map-button naver-map">네이버지도로 길찾기</a>
-            </div>
+        <!-- 전시 품목 -->
+        <section id="items" class="content-section">
+            <h2>전시품목</h2>
+            <ul>
+                <li>선크림</li>
+                <li>미백 화장품</li>
+                <li>클렌징 오일 등</li>
+            </ul>
         </section>
 
-        <footer class="footer">
-            <p>&copy; 2025 Busan. All Rights Reserved.</p>
-        </footer>
-    </div>
+        <!-- 행사장 위치 및 지도 버튼 -->
+        <section id="location" class="content-section">
+            <h2>장소</h2>
+            <p>부산광역시 수영구 민락수변로 109</p>
+            <div class="map-buttons">
+                <a href="https://map.kakao.com/link/search/부산광역시 수영구 민락수변로 109" target="_blank" class="btn kakao">카카오맵으로 길찾기</a>
+                <a href="https://map.naver.com/v5/search/부산광역시 수영구 민락수변로 109" target="_blank" class="btn naver">네이버지도로 길찾기</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Busan is Good 로고 -->
+    <footer>
+        <img src="./슬로건 가로형_하얀색.png" alt="Busan is Good 로고">
+    </footer>
 
 </body>
 </html>
